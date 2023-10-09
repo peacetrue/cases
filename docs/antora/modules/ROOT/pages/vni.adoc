@@ -1,0 +1,33 @@
+= 虚拟网络接口
+
+.物理设备
+* 集线器
+* 中继器
+* 交换机
+* 路由器
+
+== 参考
+
+.TCP/IP
+* https://en.wikipedia.org/wiki/Internet_protocol_suite[Internet protocol suite^]
+* https://en.wikipedia.org/wiki/Virtual_network_interface[虚拟网络接口 wiki^]
+
+* https://zboya.github.io/post/virtual_network_in_linux/[Linux 中的虚拟网络：总纲^]
+* https://www.zhaohuabing.com/post/2020-02-24-linux-taptun/[什么是Tun/Tap^]
+* https://backreference.org/2010/03/26/tuntap-interface-tutorial/index.html[Tun/Tap 接口教程^]
+* https://blog.csdn.net/Rong_Toa/article/details/86664955[Linux的TUN/TAP编程^]
+* https://blog.avdancedu.com/52f625ca/[揭密OpenVPN工作原理^]
+* https://blog.bofh.it/debian/id_379[IP 命令^]
+* https://technology.amis.nl/platform/virtualization-and-oracle-vm/virtualbox-networking-explained/[VirtualBox networking explained^]
+* https://www.mashibing.com/sf/pc.html#%E5%91%A8%E8%80%81%E5%B8%88%E5%86%85%E5%AD%98%E4%B8%8Eio%E7%A3%81%E7%9B%98io%E7%BD%91%E7%BB%9Cio[周志垒：从网络到分布式（集群内高并发）^]
+* https://ke.qq.com/webcourse/index.html#cid=398381&term_id=100475149&taid=3385477906699309&type=1024&vid=5285890791944493841[周志垒：从网络到分布式（集群内高并发）^]
+
+.hechao
+* https://hechao.li/2018/01/31/linux-bridge-part1/[Linux 桥 - 第 1 部分^]
+* https://hechao.li/2018/01/31/linux-bridge-part2/[Linux 桥 - 第 2 部分^]
+* https://github.com/hechaoli/tap-lab[A TAP Interface Lab：GitHub^]
+
+.baeldung
+* https://www.baeldung.com/linux/linux-administration-series[Linux 管理指南：含一个远程工作机会]
+* https://www.baeldung.com/linux/vlans-create[在 Linux 中创建 VLAN^]
+* https://www.baeldung.com/linux/destination-source-routing[将特定子网路由到特定接口^]

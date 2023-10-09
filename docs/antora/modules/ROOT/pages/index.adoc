@@ -1,0 +1,29 @@
+= 概述
+
+include::partial$shields.adoc[]
+//@formatter:off
+
+== 简介（What）
+
+{website}/{app-name}/[{app-name}] 仓库用于记录一些临时案例。
+
+== 背景（Why）
+
+有时候，临时需要一些问题，需要测试环境，可以在此仓库下创建相关案例模块。
+问题研究清楚后，再同步到对应主题仓库中。
+
+== 用法（How）
+
+参考 xref:start.adoc[]。
+
+== 参与者（Who）
+
+. peace(xiayouxue@hotmail.com)
+
+== 活动（When）
+
+初始提交于 2023-10-09，最近提交于 {docdate}。
+
+== 许可证（License）
+
+https://github.com/peacetrue/{app-name}/blob/master/LICENSE[Apache License 2.0^]

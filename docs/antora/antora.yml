@@ -1,0 +1,12 @@
+name: cases
+title: 案例集合
+version: master
+asciidoc:
+  attributes:
+    numbered: '@'
+    website: https://peacetrue.github.io
+    app-group: com.github.peacetrue.cases
+    app-name: cases
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/nav.adoc
