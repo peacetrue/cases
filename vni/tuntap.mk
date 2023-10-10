@@ -6,7 +6,7 @@ ip.tun.case: ip.tuntap.case;
 ip.tap.case: DEV_TYPE=tap
 ip.tap.case: ip.tuntap.case;
 ip.tuntap.case: ip.tuntap.rebase
-	if ! modinfo tun; then modprobe tun; fi
+	if ! modinfo tun > /dev/null; then modprobe tun; fi
 	make ip.tuntap.init.$(DEV_NAME) $(BUILD)/$(DEV_NAME).tcpdump.log ARGS="$(DEV_NAME) $(DEV_TYPE)"
 	ping $(IP_GATEWAY)0 -w 3 || true
 	killall tcpdump || true
@@ -17,9 +17,8 @@ ip.tuntap.init.%: ip.tuntap.del.% $(BUILD)/tuntap.bin.log
 	sudo ip addr add $(IP_GATEWAY)/24 dev $*
 	sudo ip link set $* up
 ip.tuntap.del.%:; sudo ip tuntap del mode $(DEV_TYPE) $*
-#$(BUILD)/%.bin.log: $(BUILD)/%.bin; $< $(ARGS) >$@ 2>&1 &
 # sudo -> ioctl: Operation not permitted
-$(BUILD)/%.bin.log: $(BUILD)/%.bin; sudo $< $(ARGS) &
+$(BUILD)/%.bin.log: $(BUILD)/%.bin; sudo $< $(ARGS) >$@ 2>&1 &
 # tcpdump suppress console output：https://stackoverflow.com/questions/49226865/tcpdump-suppress-console-output-in-script-write-to-file
 $(BUILD)/%.tcpdump.log:
 	tcpdump -nnt -i $* -v > $@ 2>&1 &
