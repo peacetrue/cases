@@ -18,7 +18,8 @@ ip.tuntap.init.%: ip.tuntap.del.% $(BUILD)/tuntap.bin.log
 	sudo ip link set $* up
 ip.tuntap.del.%:; sudo ip tuntap del mode $(DEV_TYPE) $*
 #$(BUILD)/%.bin.log: $(BUILD)/%.bin; $< $(ARGS) >$@ 2>&1 &
-$(BUILD)/%.bin.log: $(BUILD)/%.bin; $< $(ARGS) &
+# sudo -> ioctl: Operation not permitted
+$(BUILD)/%.bin.log: $(BUILD)/%.bin; sudo $< $(ARGS) &
 # tcpdump suppress console output：https://stackoverflow.com/questions/49226865/tcpdump-suppress-console-output-in-script-write-to-file
 $(BUILD)/%.tcpdump.log:
 	tcpdump -nnt -i $* -v > $@ 2>&1 &
