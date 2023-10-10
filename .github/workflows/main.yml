@@ -10,7 +10,10 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ 'centos', 'ubuntu' ]
+    runs-on: ${{ matrix.os }}-latest
     steps:
       - uses: actions/checkout@v3
       - run: make -C vni ip.tun.case
