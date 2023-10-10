@@ -6,6 +6,7 @@ ip.tun.case: ip.tuntap.case;
 ip.tap.case: DEV_TYPE=tap
 ip.tap.case: ip.tuntap.case;
 ip.tuntap.case: ip.tuntap.rebase
+	if ! modinfo tun; then modprobe tun; fi
 	make ip.tuntap.init.$(DEV_NAME) $(BUILD)/$(DEV_NAME).tcpdump.log ARGS="$(DEV_NAME) $(DEV_TYPE)"
 	ping $(IP_GATEWAY)0 -w 3 || true
 	killall tcpdump || true
@@ -13,7 +14,6 @@ ip.tuntap.case: ip.tuntap.rebase
 ip.tuntap.rebase: clean/*.log;
 ip.tuntap.init.%: ip.tuntap.del.% $(BUILD)/tuntap.bin.log
 #	sudo ip tuntap add $* mode $(DEV_TYPE)
-	sleep 1 # Cannot find device "tun99"
 	sudo ip addr add $(IP_GATEWAY)/24 dev $*
 	sudo ip link set $* up
 ip.tuntap.del.%:; sudo ip tuntap del mode $(DEV_TYPE) $*
