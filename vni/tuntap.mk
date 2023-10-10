@@ -12,7 +12,8 @@ ip.tuntap.case: ip.tuntap.rebase
 	killall -15 tuntap.bin || true
 ip.tuntap.rebase: clean/*.log;
 ip.tuntap.init.%: ip.tuntap.del.% $(BUILD)/tuntap.bin.log
-#	sudo ip tuntap add $* mode tun
+#	sudo ip tuntap add $* mode $(DEV_TYPE)
+	sleep 1 # Cannot find device "tun99"
 	sudo ip addr add $(IP_GATEWAY)/24 dev $*
 	sudo ip link set $* up
 ip.tuntap.del.%:; sudo ip tuntap del mode $(DEV_TYPE) $*
