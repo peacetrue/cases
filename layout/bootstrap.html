@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /*设置全局高度值*/
+        :root {
+            --height: 4rem;
+        }
+
+        /*明确设置使用的高度*/
+        .height-using {
+            height: var(--height);
+        }
+
+        /*行高和高度一致，文字垂直居中对齐*/
+        header.height-using, footer.height-using {
+            line-height: calc(var(--height));
+        }
+
+        /*容器使用的剩余高度：视窗高度 - foot使用高度*/
+        .container.height-rest {
+            min-height: calc(100vh - var(--height));
+        }
+
+        /*侧边栏使用的剩余高度：视窗高度 - header使用高度 - foot使用高度*/
+        aside.height-rest {
+            top: var(--height);
+            height: calc(100vh - var(--height) * 2);
+        }
+
+        header, aside, main, footer {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<header class="container fixed-top h1 height-using">标题栏</header>
+<div class="container height-rest">
+    <div class="height-using"></div>
+    <div class="row">
+        <aside class="col-4 col-md-2 overflow-scroll position-sticky height-rest">侧边栏</aside>
+        <main class="col-8 col-md-10">主体</main>
+    </div>
+</div>
+<footer class="text-center height-using">页脚</footer>
+</body>
+</html>
