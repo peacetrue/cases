@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原理</title>
+    <style>
+        body > div {
+            width: 100px;
+            height: 100px;
+            overflow: auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h1>滚动到顶部/底部</h1>
+<!-- https://juejin.cn/post/6844903961862897672 -->
+<div id="container"></div>
+<p id="shower"></p>
+<script>
+    let container = document.querySelector("div");
+    let template = container.cloneNode();
+    for (let i = 0; i < 10; i++) {
+        let node = template.cloneNode();
+        node.innerText = i;
+        container.append(node)
+    }
+
+    container.addEventListener("scroll", function (event) {
+        let shower = document.querySelector("p");
+        ["offsetHeight", "clientHeight", "scrollHeight", "scrollTop"]
+            .forEach(item => shower.append(`${item}: ${container[item]}; `));
+        if (this.scrollTop === 0) shower.append("top");
+        if (this.clientHeight + this.scrollTop === this.scrollHeight) shower.append("end");
+        shower.append(document.createElement("br"));
+    });
+
+</script>
+</body>
+</html>

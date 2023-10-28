@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实践-无限滚动(AJAX)</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.4;
+            padding: 20px;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .photo-item {
+            margin: 40px 0;
+            padding-top: 20px;
+            border-top: 1px solid #DDD;
+        }
+
+        .photo-item__image {
+            display: block;
+            max-width: 100%;
+        }
+
+        .page-load-status {
+            display: none; /* hidden by default */
+            padding-top: 20px;
+            border-top: 1px solid #DDD;
+            text-align: center;
+            color: #777;
+        }
+
+        /* loader ellips in separate pen CSS */
+    </style>
+</head>
+<body>
+<!--
+https://infinite-scroll.com/
+
+是的，有一些在线服务和网站可以提供模拟测试数据的JSON返回。这些服务通常用于开发和测试目的，以模拟API端点的数据响应。以下是一些提供模拟测试数据的在线网站和服务：
+
+1. **JSONPlaceholder**（[jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/)）：
+   JSONPlaceholder 提供了一组RESTful API端点，可以返回各种类型的模拟数据，如用户、帖子、评论等。这对于前端开发和API测试非常有用。
+
+2. **RandomUser.me**（[randomuser.me](https://randomuser.me/)）：
+   RandomUser.me 允许您生成随机用户数据的JSON响应，包括姓名、电子邮件、地址、头像等。这对于模拟用户管理系统非常有用。
+
+3. **JSON Generator**（[next.json-generator.com](https://next.json-generator.com/)）：
+   JSON Generator 允许您使用模板创建自定义JSON数据，并为每个属性定义规则。这是一个强大的工具，用于生成符合特定模式的测试数据。
+
+4. **Mockaroo**（[mockaroo.com](https://www.mockaroo.com/)）：
+   Mockaroo 是一个功能强大的数据生成器，允许您生成各种格式的模拟数据，包括JSON、CSV、SQL等。它支持自定义数据模型和规则。
+
+5. **Extendable JSON Generator**（[extendablejson.com](https://www.extendablejson.com/)）：
+   Extendable JSON Generator 提供了用于生成自定义JSON数据的简单界面。您可以定义数据模型和规则以生成所需的测试数据。
+
+这些服务可用于快速获取模拟测试数据，以帮助开发人员进行前端开发、API测试和其他开发任务。请注意，这些服务大多是免费的，但也提供了高级功能和订阅选项以满足更高级的需求。
+-->
+
+
+<h1>Infinite Scroll v4 - Loading JSON</h1>
+
+<p>Loading photos from the <a href="https://unsplash.com/developers?utm_source=infinite-scroll-demos&utm_medium=referral&utm_campaign=api-credit">Unsplash API</a></p>
+
+<div class="container"></div>
+
+<div class="page-load-status">
+    <div class="loader-ellips infinite-scroll-request">
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+    </div>
+    <p class="infinite-scroll-last">End of content</p>
+    <p class="infinite-scroll-error">No more pages to load</p>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://unpkg.com/infinite-scroll@4.0.1/dist/infinite-scroll.pkgd.min.js"></script>
+<script>
+    // Get an API key for your demos at https://unsplash.com/developers
+    const unsplashID = '9ad80b14098bcead9c7de952435e937cc3723ae61084ba8e729adb642daf0251';
+
+    let $container = $('.container').infiniteScroll({
+        path: function () {
+            console.info("this: ", this)
+            return `https://api.unsplash.com/photos?client_id=${unsplashID}&page=${this.pageIndex}`;
+        },
+        // load response as JSON
+        responseBody: 'json',
+        status: '.scroll-status',
+        history: false,
+    });
+
+    $container.on('load.infiniteScroll', function (event, body) {
+        // compile body data into HTML
+        let itemsHTML = body.map(getItemHTML).join('');
+        // convert HTML string into elements
+        let $items = $(itemsHTML);
+        // append item elements
+        $container.infiniteScroll('appendItems', $items);
+    });
+
+    // load initial page
+    $container.infiniteScroll('loadNextPage');
+
+    //------------------//
+
+    function getItemHTML({user, urls}) {
+        return `<div class="photo-item">
+                <img class="photo-item__image" src="${urls.regular}" alt="Photo by ${user.name}" />
+                <p class="photo-item__caption">
+                  <a href="${user.links.html}?utm_source=infinite-scroll-demos&utm_medium=referral&utm_campaign=api-credit">${user.name}</a>
+                </p>
+              </div>`;
+    }
+</script>
+</body>
+</html>
