@@ -17,3 +17,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: make -C vni ip.tun.case
+      - run: make -C concurrence_rw all
