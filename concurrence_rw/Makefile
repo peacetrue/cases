@@ -5,7 +5,7 @@ include build.elf.mk
 
 all:write;
 
-SIZE := $(shell echo $$((100 * 1024 * 1024))) # 10MB
+SIZE := $(shell echo $$((1024 * 1024 * 1024)))
 $(BUILD)/result.csv: $(BUILD)/write.bin
 	$< $(BUILD)/file $(SIZE) $@
 write: $(BUILD)/result.csv
