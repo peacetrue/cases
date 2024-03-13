@@ -1,0 +1,6 @@
+plugins {
+    id "io.github.peacetrue.build-convention" version "1.2.1"
+}
+
+group 'com.github.peacetrue.cases'
+version '1.0.0'

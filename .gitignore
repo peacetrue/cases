@@ -21,3 +21,4 @@ build
 target
 # npm
 node_modules
+cmake-build-debug*

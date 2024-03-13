@@ -1,0 +1,101 @@
+/* 重置 css */
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none; /* 去除默认的下划线 */
+    outline: none; /* 去除旧版浏览器的点击后的外虚线框 */
+    color: #000; /* 去除默认的颜色和点击后变化的颜色 */
+}
+
+:root {
+    font-size: 18px;
+    --height: 12px;
+    --header-height: calc(var(--height) * 3);
+    --logo-height: calc(var(--height) * 2);
+    --footer-height: calc(var(--height) * 2);
+    --border-height: 1px;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    /*background-image: url("bg.jpeg");*/
+    /*backdrop-filter: blur(5px);*/
+    /*margin: 0 calc(var(--height) * 1);*/
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    border-bottom: var(--border-height) solid #777777;
+    padding: 0 calc(var(--height) * 1);
+
+    background-color: white;
+    opacity: 0.6;
+
+    position: sticky;
+    top: 0;
+}
+
+.header .nav-links {
+    display: flex;
+    gap: calc(var(--height) * 2);
+}
+
+.header .nav-links .logo {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--height) * 1);
+    margin-right: calc(var(--height) * 2);
+}
+
+.header .nav-links .logo img {
+    height: var(--logo-height);
+}
+
+.header .nav-links a:hover {
+    color: grey;
+}
+
+.header .nav-operates {
+    display: flex;
+    gap: calc(var(--height) * 1);
+}
+
+.main {
+    min-height: calc(100vh - var(--header-height) - var(--footer-height) - var(--border-height));
+}
+
+.main .landing {
+    /*width: 80vw;*/
+    /*margin: 0 auto;*/
+    min-height: calc(100vh - var(--header-height) - var(--border-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: calc(var(--height) * 4);
+    background: linear-gradient(blue, pink);
+}
+
+.main .landing h1 {
+    font-size: calc(var(--height) * 5);
+    font-weight: bolder;
+}
+
+
+.footer {
+    height: var(--footer-height);
+    text-align: center;
+}
+
+@media screen and (max-width: 960px) {
+    /* 当前视口最大屏幕宽度小于800px时，h1的字体为蓝色 */
+    .pc {
+        display: none;
+    }
+}
+

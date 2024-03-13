@@ -1,0 +1,7 @@
+= WebJars
+
+* https://github.com/webjars[github^]
+* https://www.webjars.org/[WebJars^]
+* https://www.webjars.org/contributing[创建 WebJars^]
+* https://spring.io/blog/2014/01/03/utilizing-webjars-in-spring-boot[Utilizing WebJars in Spring Boot^]
+

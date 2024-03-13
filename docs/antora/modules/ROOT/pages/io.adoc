@@ -1,0 +1,59 @@
+= IO
+
+== 硬件实现（指令）
+
+* https://www.cnblogs.com/niuyourou/p/12588407.html[I/O 操作的那些事儿：轮询 ，中断 ， DMA ，通道^]
+
+== 操作系统实现（系统调用）
+
+参见 <<_数据流转方式>>。
+
+== 数据流转方式
+
+* Direct IO
+* Buffer IO
+* mmap
+* sendfile
+
+== 常见介质
+
+* 文件 IO
+* 网络 IO
+
+== IO 模型
+
+* 同步 异步 信号
+* 阻塞 非阻塞 多路复用
+
+== Web 服务
+
+=== Nginx
+
+=== Netty
+
+=== Tomcat
+
+== 常见问题
+
+* 同步转异步/异步转同步？
+* Project Reactor 实现原理？
+* AIO / Java AIO？
+* MySQL 如何快速导入大量数据？
+
+== 附录
+
+* https://reactivemanifesto.org/[反应式宣言^]
+* https://developer.aliyun.com/article/497920[反应式宣言 译文^]
+* http://www.reactive-streams.org/[反应式流 官网^]
+* https://github.com/reactive-streams/reactive-streams-jvm/tree/v1.0.4[反应式流 GitHub^]
+* https://projectreactor.io/[第四代反应式库^]
+* https://www.bilibili.com/video/BV1dt4y1y7bC[bilibili 软件体系结构-12. 响应式架构^]
+* https://zhuanlan.zhihu.com/p/112162403[异步I/O -- posix aio 从入门到放弃的吐血实践^]
+* https://github.com/littledan/linux-aio[如何使用 Linux AIO 功能^]
+* https://www.bilibili.com/video/BV12U4y167sf[网络编程系列(select、poll、epoll、Reactor模型、Proactor模型)^]
+* https://www.51cto.com/article/701315.html[深入理解Linux端口重用这一特性^]
+* https://zhuanlan.zhihu.com/p/115912936[100%弄明白5种IO模型^]
+* https://cloud.tencent.com/developer/article/1447290[通俗易懂的Nginx工作原理^]
+* https://juejin.cn/post/6998914498241232933[linux 多线程或多进程 epoll处理 accept 惊群问题^]
+* https://blog.csdn.net/jyxmust/article/details/88354485[浅谈Buffer I/O 和 Direct I/O^]
+* https://blog.csdn.net/qilu0882/article/details/40980843[O_NONBLOCK与O_NDELAY有何不同^]

@@ -1,0 +1,10 @@
+= 数据对齐
+
+== 附录
+
+.wiki
+* https://en.wikipedia.org/wiki/Data_structure_alignment[数据结构对齐^]
+
+.stackoverflow
+* https://stackoverflow.com/questions/381244/purpose-of-memory-alignment[内存对齐的目的^]
+

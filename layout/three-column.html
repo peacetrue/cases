@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三栏布局</title>
+    <!-- 浏览器每隔一秒自动刷新，方便查看效果 -->
+    <meta http-equiv="refresh" content="1">
+    <!-- 1. 搭建骨架 -->
+    <!-- 2. 设置背景，方便辨识 -->
+    <!-- 3. 主体部分撑开高度 -->
+    <!-- 4. 头部固定扩宽，主体添加占位 -->
+    <!-- 5. 消除边距和填充 -->
+    <!-- 6. 测试效果 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<header style="background-color: red;position: fixed;width: 100%">头部固定</header>
+<div style="min-height: 100vh;
+display: flex;flex-direction: column">
+    <header>&nbsp;</header>
+    <main style="background-color: green;flex-grow: 1">
+        主体滚动
+    </main>
+    <footer style="background-color: yellow">
+        页脚始终在底部或者溢出隐藏
+    </footer>
+</div>
+<script>
+    let element = document.querySelector("main");
+    for (let i = 0; i < 100; i++) {
+        let node = document.createElement("p");
+        node.innerText = i.toString(10);
+        element.append(node);
+    }
+</script>
+</body>
+</html>

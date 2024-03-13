@@ -1,0 +1,14 @@
+= 页面布局
+
+== 企业官网
+
+信息展示类。
+
+
+== 附录
+
+* https://sandpack.codesandbox.io/docs
+* https://www.bilibili.com/video/BV1gt4y1e7Rv[baseline^]
+.bootstrap
+* https://getbootstrap.com/docs/5.3/getting-started/introduction/
+* https://opencollective.com/bootstrap

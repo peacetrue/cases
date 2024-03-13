@@ -2,5 +2,15 @@
 
 == 待解决
 
+* 为什么要内存对齐？why memory align
+* 64 位数据如何在 32 位处理器上表示？ https://blog.csdn.net/qq_24601427/article/details/103407628[32位系统处理64位数据^]
+
+
 == 已解决
 
+
+== 附录
+
+* https://xiaolincoding.com[小林 coding^]
+* https://www.cnblogs.com/zhongqifeng/p/14765576.html[CPU Cache与缓存行^]
+* https://blog.csdn.net/mba16c35/article/details/40894949[CPU高速缓存行对齐(cache line)^]

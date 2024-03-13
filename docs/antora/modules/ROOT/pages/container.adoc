@@ -1,0 +1,24 @@
+= 容器
+
+容器是隔离的工作空间。
+
+== 资源隔离
+
+Linux 通过 https://en.wikipedia.org/wiki/Linux_namespaces[namespace^] 资源隔离。
+
+. namespaces:
+* mnt（Mount）：文件系统挂载点
+* pid（process id）：进程编号
+* net（Networking）：网络接口
+* ipc（InterProcess Communication）：内部进程通信
+* uts（Unix Timesharing System）：主机和域名
+. cgroups（Control groups）：资源限制
+. UnionFS（Union file systems）：统一文件系统
+
+
+== 容器格式
+
+== 参考
+
+.docker
+*
