@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三栏布局</title>
+    <!-- 浏览器每隔一秒自动刷新，方便查看效果 -->
+<!--    <meta http-equiv="refresh" content="1">-->
+    <!-- 1. 搭建骨架 -->
+    <!-- 2. 设置背景，方便辨识 -->
+    <!-- 3. 主体部分撑开高度 -->
+    <!-- 4. 头部固定扩宽，主体添加占位 -->
+    <!-- 5. 消除边距和填充 -->
+    <!-- 6. 测试效果 -->
+
+
+    <!--  上面是之前做的，下面接着来-->
+    <!-- 7. 添加侧边栏，设置背景颜色 -->
+    <!-- 8. 侧边栏固定悬浮 -->
+    <!-- 9. 使用高度变量  -->
+    <!-- 10. 测试效果  -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root{
+            --header-height: 24px;
+            --footer-height: 24px;
+        }
+    </style>
+</head>
+<body>
+<header style="background-color: red;position: fixed;
+width: 100%; height: var(--header-height)">头部固定</header>
+<div style="min-height: 100vh;
+display: flex;flex-direction: column">
+    <header style="height: var(--header-height)">&nbsp;</header>
+    <div style="background-color: green;flex-grow: 1;
+display: flex">
+        <aside style="background-color: grey;
+width: 20%; position: sticky; top: var(--header-height);
+ height: calc(100vh - var(--header-height) - var(--footer-height)); overflow: auto">
+            侧边栏固定滚动
+        </aside>
+        <main style="background-color: rebeccapurple;
+flex-grow: 1">
+            主体滚动
+        </main>
+    </div>
+    <footer style="background-color: yellow;height: var(--footer-height)">
+        页脚始终在底部或者溢出隐藏
+    </footer>
+</div>
+<script>
+    {
+
+        let element = document.querySelector("main");
+        for (let i = 0; i < 100; i++) {
+            let node = document.createElement("p");
+            node.innerText = i.toString(10);
+            element.append(node);
+        }
+
+    }
+    {
+
+        let element = document.querySelector("aside");
+        for (let i = 0; i < 100; i++) {
+            let node = document.createElement("p");
+            node.innerText = i.toString(10);
+            element.append(node);
+        }
+
+    }
+</script>
+</body>
+</html>
